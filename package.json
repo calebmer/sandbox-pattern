@@ -1,0 +1,16 @@
+{
+  "name": "sandbox-pattern",
+  "version": "1.0.0",
+  "description": "Uses the Sandbox Javascript pattern to help rationalize load order in projects without good dependency management",
+  "readme": "README.md",
+  "main": "lib/sandbox.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  },
+  "dependencies": {
+    "lodash": "^3.9.3"
+  }
+}

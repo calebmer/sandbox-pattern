@@ -2,10 +2,26 @@
   "name": "sandbox-pattern",
   "version": "1.0.0",
   "description": "Uses the Sandbox Javascript pattern to help rationalize load order in projects without good dependency management",
-  "readme": "README.md",
+  "author": "Caleb Meredith <calebmeredith8@gmail.com>",
+  "keywords": [
+    "sandbox",
+    "pattern",
+    "Stoyan Stefanov",
+    "dependency",
+    "management"
+  ],
+  "liscense": "MIT",
   "main": "lib/sandbox.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "test": "node_modules/.bin/mocha"
+  },
+  "readme": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/calebmer/sandbox-pattern.git"
   },
   "devDependencies": {
     "mocha": "^2.2.5"

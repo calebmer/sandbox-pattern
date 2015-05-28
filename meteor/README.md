@@ -15,3 +15,5 @@ Sandbox('bird', function () {
   };
 });
 ```
+
+It's important to note that the sandbox variable is imported as `Sandbox` and not as `sandbox`.

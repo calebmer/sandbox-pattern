@@ -161,3 +161,7 @@ Process loops (TODO: extend)
 ## Is the README comprehensible?
 
 If you don't understand something, or anything seems unclear, please submit an issue.
+
+## So long and thanks for all the fish
+
+Enjoy the module? Connect with me on [Twitter](https://twitter.com/calebmer).

@@ -16,9 +16,11 @@ To use with Meteor:
 $ meteor add calebmer:sandbox
 ```
 
+Important note for **Meteor** users. In the following documentation the variable is referred to as `sandbox`, but in Meteor the variable is exported as `Sandbox`. With a capital S.
+
 ## Usage
 
-A sandbox is a scoped context block with one variable passed in, the `box` variable. The easiest way to visualize how the sandbox module works is with the following (we assume `sandbox` is defined in the global scope).
+A sandbox is a scoped context block with one variable passed in, the `box` variable. The easiest way to visualize how the sandbox module works is with the following (we assume `sandbox` is defined in the global scope, `Sandbox` for Meteor users).
 
 ```javascript
 sandbox('bird', function () {

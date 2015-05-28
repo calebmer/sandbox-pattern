@@ -164,4 +164,4 @@ If you don't understand something, or anything seems unclear, please submit an i
 
 ## So long and thanks for all the fish
 
-Enjoy the module? Connect with me on [Twitter](https://twitter.com/calebmer).
+Enjoy the package? Connect with me on [Twitter](https://twitter.com/calebmer).

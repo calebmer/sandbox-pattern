@@ -2,6 +2,12 @@ var assert  = require('assert');
 var sandbox = require('../lib/sandbox');
 
 describe('sandbox', function () {
+  var obj = { some: 'obj' };
+
+  var func = function () {
+    return null;
+  };
+
   beforeEach(function () {
     sandbox.reset();
   });
@@ -110,6 +116,32 @@ describe('sandbox', function () {
     });
   });
 
+  it('supports child modules', function (done) {
+    sandbox('module1', function () { return { hello: 'world' }; });
+    sandbox('module1', function () { return { world: 'hello' }; });
+    sandbox('module1.func', function () { return func; });
+    sandbox('module1.obj', function () { return obj; });
+
+    sandbox(['module1'], function (box) {
+      assert.equal(box.module1.hello, 'world');
+      assert.equal(box.module1.world, 'hello');
+      assert.equal(box.module1.func, func);
+      assert.equal(box.module1.obj, obj);
+      done();
+    });
+  });
+
+  it('allows the parent module to not need a definition', function (done) {
+    sandbox('module1.func', function () { return func; });
+    sandbox('module1.obj', function () { return obj; });
+
+    sandbox(['module1'], function (box) {
+      assert.equal(box.module1.func, func);
+      assert.equal(box.module1.obj, obj);
+      done();
+    });
+  });
+
   it('won\'t allow circular dependencies - lv1', function () {
     sandbox('module1', ['module1'], function () { assert(false); });
   });
@@ -123,45 +155,5 @@ describe('sandbox', function () {
     sandbox('module1', ['module3'], function () { assert(false); });
     sandbox('module2', ['module1'], function () { assert(false); });
     sandbox('module3', ['module2'], function () { assert(false); });
-  });
-
-  it('allows circular dependencies with an escape', function () {
-    sandbox('module1', function () { return { hello: 'world' }; });
-
-    sandbox('module1', ['module2'], function (box) {
-      assert.equal(box.module2.another, 'module');
-      return { world: 'hello' };
-    });
-
-    sandbox('module2', ['module1'], function (box) {
-      assert.equal(box.module1.hello, 'world');
-      assert.notEqual(box.module1.world, 'hello');
-      return { another: 'module' };
-    });
-  });
-
-  it('supports child modules', function (done) {
-    var obj = { some: 'obj' };
-
-    var func = function () {
-      return null;
-    };
-
-    sandbox('module1', function () { return { hello: 'world' }; });
-    sandbox('module1', function () { return { world: 'hello' }; });
-    sandbox('module1.func', function () { return func; });
-    sandbox('module1.obj', function () { return obj; });
-
-    sandbox(['module1'], function (box) {
-      assert.equal(box.module1.hello, 'world');
-      assert.equal(box.module1.world, 'hello');
-      assert.equal(box.module1.func, func);
-      assert.equal(box.module1.obj, obj);
-      done();
-    });
-
-    sandbox(['module1.func'], function (box) {
-      assert.equal(box.module1.func, func);
-    });
   });
 });

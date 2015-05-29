@@ -1,4 +1,4 @@
-var version = '1.0.1';
+var version = '1.0.2';
 
 Package.describe({
   name:    'calebmer:sandbox',

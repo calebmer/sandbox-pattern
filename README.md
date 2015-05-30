@@ -154,6 +154,18 @@ sandbox(['doesNotExist'], function (err, box) {
 
 If there is no error, `err` would be undefined and `box` would have the traditional box modules.
 
+### ECMA Script 6
+
+With the coming adoption of ES6 (or with a tool like [Babel](https://babeljs.io/)) there is a nice syntactic sugar developers can use to easily access data inside the `box` variable. That would be by object destructuring in a way similar to that below, assuming the `bird` and `dog` modules are defined.
+
+```javascript
+sandbox(['bird', 'dog'], function ({ bird, dog }) {
+  console.log(bird ? true : false); // # => true
+  console.log(dog  ? true : false); // # => true
+  console.log(box  ? true : false); // # => false
+});
+```
+
 ## How it Works
 
 Process loops (TODO: extend)

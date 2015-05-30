@@ -165,3 +165,7 @@ If you don't understand something, or anything seems unclear, please submit an i
 ## So long and thanks for all the fish
 
 Enjoy the package? Connect with me on [Twitter](https://twitter.com/calebmer).
+
+Make sure to check out the package on:
+- [npmjs.com](https://www.npmjs.com/package/sandbox-pattern)
+- [atmospherejs.com](https://atmospherejs.com/calebmer/sandbox)

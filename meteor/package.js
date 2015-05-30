@@ -1,8 +1,8 @@
-Npm.depends({ 'sandbox-pattern': '1.0.3' });
+Npm.depends({ 'sandbox-pattern': '1.0.4' });
 
 Package.describe({
   name:    'calebmer:sandbox',
-  version: '1.1.0',
+  version: '1.1.1',
   summary: 'Helps rationalize load order in meteor for large applications',
   git:     'https://github.com/calebmer/sandbox-pattern.git',
 

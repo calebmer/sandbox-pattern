@@ -142,6 +142,23 @@ describe('sandbox', function () {
     });
   });
 
+  it('allows for manual startup execution', function () {
+    var success = false;
+
+    sandbox.configure({ startupWait: true });
+
+    sandbox('module1', function () { return { hello: 'world' }; });
+
+    sandbox(['module1'], function (box) {
+      assert.equal(box.module1.hello, 'world');
+      success = true;
+    });
+
+    sandbox.startup();
+
+    assert(success, 'Sandboxes were not executed');
+  });
+
   it('won\'t allow circular dependencies - lv1', function () {
     sandbox('module1', ['module1'], function () { assert(false); });
   });

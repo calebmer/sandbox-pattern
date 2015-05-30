@@ -6,17 +6,27 @@ The code in this repository is an implementation of the Sandbox javascript patte
 
 ## Installation
 
-To use with NodeJS:
+### NodeJS:
+
 ```bash
 $ npm install --save sandbox-pattern
 ```
 
-To use with Meteor:
+and in your javascript:
+
+```javascript
+var sandbox = require('sandbox-pattern');
+
+// Glorius
+```
+
+### Meteor:
+
 ```bash
 $ meteor add calebmer:sandbox
 ```
 
-Important note for **Meteor** users. In the following documentation the variable is referred to as `sandbox`, but in Meteor the variable is exported as `Sandbox`. With a capital S.
+Are you using Meteor? Awesome, there are just a few things you [really should know](https://github.com/calebmer/sandbox-pattern#dear-meteor-users).
 
 ## Usage
 
@@ -154,6 +164,22 @@ sandbox(['doesNotExist'], function (err, box) {
 
 If there is no error, `err` would be undefined and `box` would have the traditional box modules.
 
+### Manual Startup Control
+
+In instances where sandboxes are defined asynchronously you need to manually choose when to start your sandboxes. By default, `setTimeout` is used to delay sandbox execution to the next loop. This is so that all the module references are defined by the time the sandboxes are executed. To manually accomplish this do the following:
+
+```javascript
+sandbox.configure({
+  startupWait: true
+});
+
+// Asynchronously define sandboxes
+
+sandbox.startup();
+
+// Sandbox has been reset
+```
+
 ### ECMA Script 6
 
 With the coming adoption of ES6 (or with a tool like [Babel](https://babeljs.io/)) there is a nice syntactic sugar developers can use to easily access data inside the `box` variable. That would be by object destructuring in a way similar to that below, assuming the `bird` and `dog` modules are defined.
@@ -166,9 +192,17 @@ sandbox(['bird', 'dog'], function ({ bird, dog }) {
 });
 ```
 
-## How it Works
+## Dear Meteor Users
 
-Process loops (TODO: extend)
+This package was initially created for Meteor, however the majority of the documentation is written for an NPM audience as NPM is more universal. As such there are a few differences Meteor users must know about. The docs have always referred to the sandbox variable as `sandbox`, however in Meteor it is defined as `Sandbox` with a capital S. That is *very important* to remember.
+
+Second, since Meteor files are loaded asynchronously on the client, manual startup mode has been enabled for both sides (@see [Manual Startup Control](https://github.com/calebmer/sandbox-pattern#manual-startup-control)). Essentially that means you need to put a `main.js` file in the root of your directory (it must load last!) and run:
+
+```javascript
+Sandbox.startup();
+```
+
+Remember, in Meteor it is 'Sandbox', not 'sandbox'!
 
 ## Is the README comprehensible?
 

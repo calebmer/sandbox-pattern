@@ -12,15 +12,15 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom(['METEOR@1.0']);
 
-  api.addFiles(['sandbox.js'], 'server');
+  api.addFiles(['server/main.js'], 'server');
 
   api.use(['stevezhu:lodash@3.8.0'], 'client');
   api.imply(['stevezhu:lodash']);
 
   api.addFiles([
-    'environment.js',
+    'client/environment.js',
     '.npm/package/node_modules/sandbox-pattern/lib/sandbox.js',
-    'main.js'
+    'client/main.js'
   ], 'client');
 
   api.export('Sandbox');

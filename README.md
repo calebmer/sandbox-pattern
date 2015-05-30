@@ -202,7 +202,7 @@ Second, since Meteor files are loaded asynchronously on the client, manual start
 Sandbox.startup();
 ```
 
-Remember, in Meteor it is 'Sandbox', not 'sandbox'!
+Remember, in Meteor it is `Sandbox`, not `sandbox`!
 
 ## Is the README comprehensible?
 

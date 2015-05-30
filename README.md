@@ -160,9 +160,9 @@ With the coming adoption of ES6 (or with a tool like [Babel](https://babeljs.io/
 
 ```javascript
 sandbox(['bird', 'dog'], function ({ bird, dog }) {
-  console.log(bird ? true : false); // # => true
-  console.log(dog  ? true : false); // # => true
-  console.log(box  ? true : false); // # => false
+  console.log(bird === undefined); // # => false
+  console.log(dog === undefined);  // # => false
+  console.log(box === undefined);  // # => true
 });
 ```
 

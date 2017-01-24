@@ -23,9 +23,9 @@
     "url": "git://github.com/calebmer/sandbox-pattern.git"
   },
   "devDependencies": {
-    "mocha": "^2.2.5"
+    "mocha": "^3.2.0"
   },
   "dependencies": {
-    "lodash": "^3.9.3"
+    "lodash": "^4.17.4"
   }
 }

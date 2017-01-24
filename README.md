@@ -1,5 +1,7 @@
 # Sandbox Pattern
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/calebmer/sandbox-pattern.svg)](https://greenkeeper.io/)
+
 Working on a project where your javascript files are arbitrarily loaded? Need a tool besides CommonJS or Browserify to easily manage dependencies? Then you should consider using the sandbox pattern.
 
 The code in this repository is an implementation of the Sandbox javascript pattern as illustrated in Stoyan Stefanov's book [Javascript Patterns](http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752).
